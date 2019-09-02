@@ -19,26 +19,44 @@
   },
   "homepage": "https://github.com/hampachovsky/taskMan#readme",
   "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "babel-loader": "8.0.6",
     "eslint": "6.3.0",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "2.18.2",
+    "prettier": "1.18.2",
+    "prettier-eslint": "9.0.0",
     "webpack": "4.39.3",
     "webpack-cli": "3.3.7",
     "webpack-dev-server": "3.8.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "eslintConfig": {
     "extends": "airbnb-base",
     "env": {
       "es6": true,
       "browser": true,
-      "commonjs": true
+      "commonjs": true,
+      "node": true
     },
-    "parserOption": {
+    "parserOptions": {
       "ecmaVersion": "2015",
       "sourceType": "module"
+    },
+    "rules": {
+      "no-underscore-dangle": "off",
+      "class-methods-use-this": "off",
+      "import/prefer-default-export": "off",
+      "arrow-parens": "as-needed"
     }
   },
   "eslintIgnore": [
-    "webpack.config.js"
+    "webpack.config.js",
+    "package.json"
   ]
 }
