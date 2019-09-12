@@ -1,3 +1,5 @@
+import { createElement } from '../utils';
+
 export default class Component {
   constructor() {
     if (new.target === Component) {
@@ -15,9 +17,17 @@ export default class Component {
     throw new Error('You have to define template.');
   }
 
-  render() {}
+  render() {
+    this._element = createElement(this.template);
+    this.bind();
+    return this._element;
+  }
 
-  unrender() {}
+  unrender() {
+    this.unbind();
+    this._element.remove();
+    this._element = null;
+  }
 
   bind() {}
 
