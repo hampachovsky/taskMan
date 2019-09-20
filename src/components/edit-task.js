@@ -14,6 +14,7 @@ export default class EditTask extends Component {
     this._onSubmit = null;
     this._onDelete = null;
 
+    // Bind method to component context, because this = element, that is undefiend
     this._addToArchive = this._addToFavorite.bind(this);
     this._onSubmitButtonClick = this._onSubmitButtonClick.bind(this);
     this._onTitleChange = this._onTitleChange.bind(this);
@@ -42,6 +43,7 @@ export default class EditTask extends Component {
     this._data.description = evt.target.value;
   }
 
+  // On submit click, update data and call _onSubmit fn. See presenter.js.
   _onSubmitButtonClick(evt) {
     evt.preventDefault();
     typeof this._onSubmit === 'function' && this._onSubmit(this._data);

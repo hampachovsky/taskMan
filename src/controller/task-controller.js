@@ -1,10 +1,11 @@
-import Task from './components/task';
-import EditTask from './components/edit-task';
-import data from './data';
+import Task from '../components/task';
+import EditTask from '../components/edit-task';
+import data from '../model/data';
 
 const TEST_DATA = 6;
 const filters = ['Favorite', 'Archive', 'All'];
 
+// Create data for task.
 const dataForTask = () => {
   const arrayOfTask = [];
   for (let i = 0; i < TEST_DATA; i += 1) {
@@ -14,6 +15,7 @@ const dataForTask = () => {
   return arrayOfTask;
 };
 
+// Support fn in which update data, after manipulating it.
 const updateData = (task, newData) => {
   task = Object.assign({}, task, newData);
   return task;
@@ -24,6 +26,9 @@ const deleteTask = task => {
   return task;
 };
 
+/* Render task function.
+   For each tasks create a component and add instruction to that, then render it.
+*/
 const renderTask = (tasks, taskContainer) => {
   taskContainer.innerHTML = '';
   for (const task of tasks) {
@@ -41,7 +46,7 @@ const renderTask = (tasks, taskContainer) => {
       taskContainer.removeChild(editTask.element);
       editTask.unrender();
     };
-
+    // With callback fn take data and update structure.
     editTask.onSubmit = newData => {
       const updatedTask = updateData(task, newData);
       componentTask.update(updatedTask);

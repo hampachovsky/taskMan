@@ -1,3 +1,5 @@
+import Filter from '../components/filter';
+// Filter function, which filters depending on the filter type
 const filterTask = (tasks, filterName) => {
   switch (filterName) {
     case 'All':
@@ -13,7 +15,8 @@ const filterTask = (tasks, filterName) => {
 
 // eslint-disable-next-line spaced-comment
 // prettier-ignore
-const renderFilter = (filterArea, filters, initialTask, taskBoard, renderTask, Filter) => {
+const renderFilter = (filterArea, filters, initialTask, taskBoard, renderTask) => {
+// For each filtertype create Filter Component, and before render, realize method for it.
   for (const filter of filters) {
     const filterComponent = new Filter(filter);
 
@@ -28,6 +31,7 @@ const renderFilter = (filterArea, filters, initialTask, taskBoard, renderTask, F
   }
 };
 
+// All filter type add in one structure for next step.
 const getFilterData = filters => {
   const arrayOfFilter = [];
   for (const filter of filters) {

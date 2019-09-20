@@ -12,9 +12,12 @@ export default class Task extends Component {
 
     this._element = null;
     this._onEdit = null;
+
+    // Bind method to component context, because this = element, that is undefiend
     this._onEditButtonClick = this._onEditButtonClick.bind(this);
   }
 
+  // On edit click, update data and call _onEdit fn. See presenter.js.
   _onEditButtonClick() {
     typeof this._onEdit === 'function' && this._onEdit();
   }

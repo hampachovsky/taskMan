@@ -9,6 +9,8 @@ export default class Filter extends Component {
 
     this._element = null;
     this._onFilter = null;
+
+    // Bind method to component context, because this = element, that is undefiend
     this._onFilterClick = this._onFilterClick.bind(this);
   }
 
@@ -16,8 +18,9 @@ export default class Filter extends Component {
     this._onFilter = fn;
   }
 
+  // On filter click, update data and call _onFIlter fn. See function-for-filter.js.
   _onFilterClick() {
-    this._onFilter();
+    typeof this._onFilter === 'function' && this._onFilter();
   }
 
   get template() {
