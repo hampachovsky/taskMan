@@ -3,20 +3,14 @@ const forFavorite = () => {
   return rand;
 };
 
-const data = () => ({
-  title: ['Eating', 'Reading', 'Writting', 'Shopping', 'Travelling', 'Working'][
-    Math.floor(Math.random() * 6)
-  ],
-  description: [
-    'Do Homework',
-    'Buy milk',
-    'Read a book',
-    'Write a book',
-    'Watch a film',
-    'Eat',
-  ][Math.floor(Math.random() * 6)],
+// Create data for task, look at create-task-controller.js;
+const data = userData => ({
+  title: userData.title,
+  description: userData.description,
   isFavorite: forFavorite() === 0 && true,
   isArchive: forFavorite() === 0 && true,
 });
 
-export default data;
+const filters = ['Favorite', 'Archive', 'All'];
+
+export { data, filters };

@@ -18,7 +18,7 @@ export default class Filter extends Component {
     this._onFilter = fn;
   }
 
-  // On filter click, update data and call _onFIlter fn. See function-for-filter.js.
+  // On filter click, update data and call _onFIlter fn. See filter-controller.js.
   _onFilterClick() {
     typeof this._onFilter === 'function' && this._onFilter();
   }

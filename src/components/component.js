@@ -6,6 +6,7 @@ export default class Component {
       throw new Error("Can't instantiate Component, only concrete one.");
     }
     this._state = {};
+    this._data = {};
     this._element = null;
   }
 

@@ -43,7 +43,7 @@ export default class EditTask extends Component {
     this._data.description = evt.target.value;
   }
 
-  // On submit click, update data and call _onSubmit fn. See presenter.js.
+  // On submit click, update data and call _onSubmit fn. See task-controller.js.
   _onSubmitButtonClick(evt) {
     evt.preventDefault();
     typeof this._onSubmit === 'function' && this._onSubmit(this._data);

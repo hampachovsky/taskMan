@@ -15,7 +15,7 @@ const filterTask = (tasks, filterName) => {
 
 // eslint-disable-next-line spaced-comment
 // prettier-ignore
-const renderFilter = (filterArea, filters, initialTask, taskBoard, renderTask) => {
+const renderFilter = (filterArea, filters, initialTask = null, taskBoard, renderTask) => {
 // For each filtertype create Filter Component, and before render, realize method for it.
   for (const filter of filters) {
     const filterComponent = new Filter(filter);

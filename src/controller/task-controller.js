@@ -1,19 +1,5 @@
 import Task from '../components/task';
 import EditTask from '../components/edit-task';
-import data from '../model/data';
-
-const TEST_DATA = 6;
-const filters = ['Favorite', 'Archive', 'All'];
-
-// Create data for task.
-const dataForTask = () => {
-  const arrayOfTask = [];
-  for (let i = 0; i < TEST_DATA; i += 1) {
-    const taskData = data();
-    arrayOfTask.push(taskData);
-  }
-  return arrayOfTask;
-};
 
 // Support fn in which update data, after manipulating it.
 const updateData = (task, newData) => {
@@ -60,4 +46,4 @@ const renderTask = (tasks, taskContainer) => {
   }
 };
 
-export { renderTask, dataForTask, filters };
+export default renderTask;

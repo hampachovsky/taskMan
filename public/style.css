@@ -27,7 +27,8 @@ body {
 .modal {
   display: block !important;
   background: rgba(0, 0, 0, 0.836);
-
-
 }
 
+.error-message {
+  color: red;
+}

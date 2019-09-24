@@ -17,7 +17,7 @@ export default class Task extends Component {
     this._onEditButtonClick = this._onEditButtonClick.bind(this);
   }
 
-  // On edit click, update data and call _onEdit fn. See presenter.js.
+  // On edit click, update data and call _onEdit fn. See task-controller.js.
   _onEditButtonClick() {
     typeof this._onEdit === 'function' && this._onEdit();
   }
