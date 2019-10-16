@@ -14,13 +14,13 @@ export default class EditTask extends Component {
     this._onSubmit = null;
     this._onDelete = null;
 
-    // Bind method to component context, because this = element, that is undefiend
-    this._addToArchive = this._addToFavorite.bind(this);
+    // Bind method to component context, because this = element, that is undefiend.
     this._onSubmitButtonClick = this._onSubmitButtonClick.bind(this);
     this._onTitleChange = this._onTitleChange.bind(this);
     this._onDescriptionChange = this._onDescriptionChange.bind(this);
     this._onDeleteButtonClick = this._onDeleteButtonClick.bind(this);
     this._addToFavorite = this._addToFavorite.bind(this);
+    this._addToArchive = this._addToArchive.bind(this);
   }
 
   _addToArchive() {

@@ -10,7 +10,7 @@ export default class Filter extends Component {
     this._element = null;
     this._onFilter = null;
 
-    // Bind method to component context, because this = element, that is undefiend
+    // Bind method to component context, because this = element, that is undefiend.
     this._onFilterClick = this._onFilterClick.bind(this);
   }
 
@@ -25,7 +25,7 @@ export default class Filter extends Component {
 
   get template() {
     return `
-        <li class="nav-item">
+        <li class="nav-item filter-item">
           <button type="button" style="color: white" class="btn btn-link ${this._data.caption}-btn">${this._data.caption}</button>
         </li>
       `.trim();
