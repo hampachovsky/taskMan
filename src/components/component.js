@@ -1,5 +1,7 @@
 import { createElement } from '../utils';
 
+
+// Abstract class.
 export default class Component {
   constructor() {
     if (new.target === Component) {
@@ -30,9 +32,9 @@ export default class Component {
     this._element = null;
   }
 
-  bind() {}
+  bind() { }
 
-  unbind() {}
+  unbind() { }
 
-  update() {}
+  update() { }
 }

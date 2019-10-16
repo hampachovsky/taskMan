@@ -1,5 +1,6 @@
 import Task from '../components/task';
 import EditTask from '../components/edit-task';
+import DataBase from '../model/data-base';
 
 // Support fn in which update data, after manipulating it.
 const updateData = (task, newData) => {
@@ -7,7 +8,9 @@ const updateData = (task, newData) => {
   return task;
 };
 
+
 const deleteTask = task => {
+  DataBase.removeData('tasks', task.id);
   task = null;
   return task;
 };
@@ -20,7 +23,6 @@ const renderTask = (tasks, taskContainer) => {
   for (const task of tasks) {
     const componentTask = new Task(task);
     const editTask = new EditTask(task);
-
     componentTask.onEdit = () => {
       editTask.render();
       taskContainer.replaceChild(editTask.element, componentTask.element);
@@ -32,14 +34,15 @@ const renderTask = (tasks, taskContainer) => {
       taskContainer.removeChild(editTask.element);
       editTask.unrender();
     };
-    // With callback fn take data and update structure.
+
+    // With callback fn take data and update structure with DB.
     editTask.onSubmit = newData => {
       const updatedTask = updateData(task, newData);
+      DataBase.updateData('tasks', updatedTask.id, updatedTask);
       componentTask.update(updatedTask);
       componentTask.render();
-      taskContainer.appendChild(componentTask.element, editTask.element);
+      taskContainer.replaceChild(componentTask.element, editTask.element);
       editTask.unrender();
-      4;
     };
 
     taskContainer.appendChild(componentTask.render());

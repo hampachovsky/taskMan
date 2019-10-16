@@ -17,7 +17,8 @@ export default class CreateTask extends Component {
     this._element = null;
     this._onClose = null;
     this._onSubmit = null;
-    // Bind method to component context, because this = element, that is undefiend
+
+    // Bind method to component context, because this = element, that is undefiend.
     this._onSubmitButtonClick = this._onSubmitButtonClick.bind(this);
     this._onCloseButtonClick = this._onCloseButtonClick.bind(this);
     this._onTitleChange = this._onTitleChange.bind(this);
@@ -36,7 +37,7 @@ export default class CreateTask extends Component {
     typeof this._onClose === 'function' && this._onClose();
   }
 
-  // On submit click, update data and call _onSubmit fn.
+  // On submit click, update data and call _onSubmit fn if the data has been validated.
   _onSubmitButtonClick(evt) {
     evt.preventDefault();
     if (CreateTask.validateData(this._data, this._state)) {
@@ -56,6 +57,7 @@ export default class CreateTask extends Component {
     };
   }
 
+  // Remove previous card, and draw new card.
   _reshape() {
     const boardTask = document.querySelector('.board-task');
     const prevElement = this._element;
